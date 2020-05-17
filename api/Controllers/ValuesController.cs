@@ -21,19 +21,21 @@ namespace api.Controllers
         [HttpGet("{id}")]
         public ActionResult<string> Get(int id)
         {
-            return "value";
+            return String.Format("value {0}", id);
         }
 
         // POST api/values
         [HttpPost]
-        public void Post([FromBody] string value)
+        public string Post([FromBody] string value)
         {
+            return String.Format("Hizo un HTTP POST con el siguiente valor en el Boby del mensaje: {0}", value);
         }
 
         // PUT api/values/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        public string Put(int id, [FromBody] string value)
         {
+            return String.Format("Hizo un HTTP PUT para crear el registro {0}\n con el siguiente valor obtenido desde el Boby del mensaje: {1}", id, value);
         }
 
         // DELETE api/values/5
